@@ -1,0 +1,34 @@
+#solicita ao usuário que informe a quantidade de produtos que serão ordenados
+num_produtos = int(input("Digite a quantidade de produtos: "))
+
+#cria uma lista vazia que irá armazenar as informações dos produtos
+produtos = []
+
+#solicita ao usuário as informações dos produtos e adiciona à lista
+for i in range(num_produtos):
+    nome = input("Digite o nome do produto: ")
+    preco = float(input("Digite o preço do produto: "))
+    qtd = int(input("Digite a quantidade do produto: "))
+    produtos.append({"nome": nome, "preco": preco, "quantidade": qtd})
+    print("--------------------------------------------")
+
+#solicita ao usuário o tipo de ordenação que deseja realizar
+opcao = int(input("Digite 1 para ordenar por nome | 2 para ordenar por preço | 3 para ordenar por quantidade: "))
+
+#ordena a lista de produtos com base na opção escolhida pelo usuário
+if opcao == 1:
+    produtos = sorted(produtos, key=lambda produto: produto["nome"])
+elif opcao == 2:
+    produtos = sorted(produtos, key=lambda produto: produto["preco"])
+elif opcao == 3:
+    produtos = sorted(produtos, key=lambda produto: produto["quantidade"])
+
+#exibe a lista de produtos ordenada na tela
+print("Lista de produtos organizada:")
+for produto in produtos:
+    print("Nome do produto:", produto["nome"], "| Preço do produto: R$", produto["preco"], "| Quantidade de produtos:", produto["quantidade"])
+
+
+
+
+
